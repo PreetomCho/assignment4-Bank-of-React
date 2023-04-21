@@ -59,7 +59,16 @@ class App extends Component {
     this.setState({creditList: this.state.creditList}, () => this.updateBalance());
   }
 
-  //addDebit
+  addDebit = (debit) => {
+    this.state.debitList.push({
+      id: debit.id,
+      description: debit.description,
+      amount: debit.amount,
+      date: debit.date 
+    })
+    
+    this.setState({debitList: this.state.debitList}, () => this.updateBalance());
+  }
 
   async componentDidMount() {
     let responseCLink = 'https://johnnylaicode.github.io/api/credits.json';
